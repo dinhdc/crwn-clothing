@@ -31,6 +31,7 @@ const SignInForm = () => {
     e.preventDefault();
 
     try {
+      // eslint-disable-next-line no-unused-vars
       const response = await signInAuthUserWithEmailAndPassword(
         email,
         password
@@ -73,7 +74,11 @@ const SignInForm = () => {
           <ButtonComponent type="submit" buttonType="inverted">
             Sign In
           </ButtonComponent>
-          <ButtonComponent type="button" onClick={signInWithGoogle} buttonType="google">
+          <ButtonComponent
+            type="button"
+            onClick={signInWithGoogle}
+            buttonType="google"
+          >
             Google Sign In
           </ButtonComponent>
         </div>
