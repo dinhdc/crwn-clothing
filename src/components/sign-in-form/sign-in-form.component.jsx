@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./sign-in.component.scss";
 import {
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.util";
@@ -18,13 +17,13 @@ const SignInForm = () => {
 
   const { email, password } = formFields;
 
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const handleSubmit = async (e) => {
@@ -32,7 +31,7 @@ const SignInForm = () => {
 
     try {
       // eslint-disable-next-line no-unused-vars
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );

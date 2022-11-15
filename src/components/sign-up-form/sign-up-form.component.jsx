@@ -37,7 +37,7 @@ const SignUpForm = () => {
         password
       );
 
-      await createUserDocumentFromAuth(user, { displayName });
+      await createUserDocumentFromAuth(user, { displayName });  
       resetFormFields();
     } catch (error) {
       console.log(error);
@@ -90,7 +90,9 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <ButtonComponent type="submit" buttonType="inverted">Sign Up</ButtonComponent>
+        <ButtonComponent type="submit" buttonType="inverted">
+          Sign Up
+        </ButtonComponent>
       </form>
     </div>
   );
