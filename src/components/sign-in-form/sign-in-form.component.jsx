@@ -5,7 +5,7 @@ import {
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.util";
 import FormInputComponent from "../form-input/form-input.component";
-import ButtonComponent from "../button/button.component";
+import ButtonComponent, { BUTTON_TYPE_CLASS } from "../button/button.component";
 
 const defaultFormFields = {
   email: "",
@@ -16,7 +16,6 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const { email, password } = formFields;
-
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -76,7 +75,7 @@ const SignInForm = () => {
           <ButtonComponent
             type="button"
             onClick={signInWithGoogle}
-            buttonType="google"
+            buttonType={BUTTON_TYPE_CLASS.google}
           >
             Google Sign In
           </ButtonComponent>
